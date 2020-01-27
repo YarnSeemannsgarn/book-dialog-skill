@@ -46,6 +46,10 @@ class BookDialog(MycroftSkill):
 
         self.speak(answer)
 
+    @intent_file_handler('who.are.the.authors.of.knowledge.graphs.methodology.tools.and.selected.use.cases.intent')
+    def handle_who_are_the_authors_of_knowledge_graphs_methodology_tools_and_selected_use_cases(self, message):
+        self.handle('who_are_the_authors_of_knowledge_graphs_methodology_tools_and_selected_use_cases.rq', 'name')
+
     def handle(self, sparql_file_name, value):
         results = self.run_file_query(sparql_file_name)
         answer = self.create_answer(results, value)
