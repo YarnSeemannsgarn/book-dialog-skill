@@ -12,21 +12,25 @@ class BookDialog(MycroftSkill):
         self.wrapper = SPARQLWrapper(GRAPHDB_REPO_URL)
         self.wrapper.addParameter('infer', 'false')
 
-    @intent_file_handler('what.are.knowledge.graphs.intent')
-    def handle_what_are_knowledge_graphs(self, message):
-        self.handle('what_are_knowledge_graphs.rq', 'comment')
-
-    @intent_file_handler('tell.me.sub.types.of.knowledge.graphs.intent')
-    def handle_tell_me_sub_types_of_knowledge_graphs(self, message):
-        self.handle('tell_me_sub_types_of_knowledge_graphs.rq', 'label')
-
     @intent_file_handler('tell.me.some.open.knowledge.graphs.intent')
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
         self.handle('tell_me_some_open_knowledge_graphs.rq', 'name')
 
     @intent_file_handler('tell.me.some.proprietary.knowledge.graphs.intent')
-    def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
+    def handle_tell_me_some_proprietary_graphs_intent(self, message):
         self.handle('tell_me_some_proprietary_knowledge_graphs.rq', 'name')
+
+    @intent_file_handler('tell.me.sub.types.of.knowledge.graphs.intent')
+    def handle_tell_me_sub_types_of_knowledge_graphs(self, message):
+        self.handle('tell_me_sub_types_of_knowledge_graphs.rq', 'label')
+
+    @intent_file_handler('what.are.knowledge.graphs.intent')
+    def handle_what_are_knowledge_graphs(self, message):
+        self.handle('what_are_knowledge_graphs.rq', 'comment')
+
+    @intent_file_handler('what_is_a_graph.intent')
+    def handle_what_is_a_graph(self, message):
+        self.handle('what_is_a_graph.rq', 'description')
 
     def handle(self, sparql_file_name, value):
         results = self.run_file_query(sparql_file_name)
