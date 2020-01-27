@@ -24,6 +24,10 @@ class BookDialog(MycroftSkill):
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
         self.handle('tell_me_some_open_knowledge_graphs.rq', 'name')
 
+    @intent_file_handler('tell.me.some.proprietary.knowledge.graphs.intent')
+    def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
+        self.handle('tell_me_some_proprietary_knowledge_graphs.rq', 'name')
+
     def handle(self, sparql_file_name, value):
         results = self.run_file_query(sparql_file_name)
         answer = self.create_answer(results, value)
