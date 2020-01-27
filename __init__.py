@@ -28,7 +28,7 @@ class BookDialog(MycroftSkill):
     def handle_what_are_knowledge_graphs(self, message):
         self.handle('what_are_knowledge_graphs.rq', 'comment')
 
-    @intent_file_handler('what_is_a_graph.intent')
+    @intent_file_handler('what.is.a.graph.intent')
     def handle_what_is_a_graph(self, message):
         self.handle('what_is_a_graph.rq', 'description')
 
