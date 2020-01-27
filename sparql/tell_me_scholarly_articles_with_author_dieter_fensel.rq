@@ -1,0 +1,10 @@
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?name
+WHERE {
+    ?article rdf:type schema:ScholarlyArticle.
+    ?article schema:name ?name.
+    ?article schema:author ?author.
+    ?author schema:name "Dieter Fensel".
+}

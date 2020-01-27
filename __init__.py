@@ -20,6 +20,10 @@ class BookDialog(MycroftSkill):
     def handle_tell_me_chapters_of_knowledge_graphs_methodology_tools_and_selected_use_cases(self, message):
         self.handle('tell_me_chapters_of_knowledge_graphs_methodology_tools_and_selected_use_cases.rq', 'name')
 
+    @intent_file_handler('tell.me.scholarly.articles.with.author.dieter.fensel.intent')
+    def handle_tell_me_scholarly_articles_with_author_dieter_fensel(self, message):
+        self.handle('tell_me_scholarly_articles_with_author_dieter_fensel.rq', 'name')
+
     @intent_file_handler('tell.me.some.open.knowledge.graphs.intent')
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
         self.handle('tell_me_some_open_knowledge_graphs.rq', 'name')

@@ -14,7 +14,7 @@ Gives information about the book knowledge graphs methodology, tools and selecte
 * "Who are the authors of knowledge graphs methodology, tools and selected use cases?"
 * "How to create a knowledge graph? / how to build an annotation?"
 * "Tell me chapters of knowledge graphs methodology, tools and selected use cases!"
-* "Tell me scholary articles with author dieter fensel!"
+* "Tell me scholarly articles with author Dieter Fensel!"
 
 ## Credits
 Jan Schlenker
