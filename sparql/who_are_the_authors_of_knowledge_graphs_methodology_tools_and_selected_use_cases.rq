@@ -2,7 +2,7 @@ PREFIX schema: <http://schema.org/>
 
 SELECT ?name
 WHERE {
-	?book schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases".
+    ?book schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases".
     ?book schema:author ?author.
     ?author schema:name ?name.
 }

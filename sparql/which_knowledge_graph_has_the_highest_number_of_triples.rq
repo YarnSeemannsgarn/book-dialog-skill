@@ -8,7 +8,7 @@ WHERE {
     ?knowledgeGraph rdfs:label "KnowledgeGraph".
     ?aKnowledgeGraph rdf:type ?knowledgeGraph.
     ?aKnowledgeGraph schema:name ?name.
-	?aKnowledgeGraph kgb:numTriples ?numTriples.
+    ?aKnowledgeGraph kgb:numTriples ?numTriples.
 }
 ORDER BY DESC(?numTriples)
 LIMIT 1

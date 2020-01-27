@@ -2,9 +2,9 @@ PREFIX schema: <http://schema.org/>
 
 SELECT ?name
 WHERE {
-	?book schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases".
-	?book schema:hasPart ?chapter.
-	?chapter schema:name ?name.
+    ?book schema:name "Knowledge Graphs Methodology, Tools and Selected Use Cases".
+    ?book schema:hasPart ?chapter.
+    ?chapter schema:name ?name.
     ?chapter schema:position ?position.
 }
 ORDER BY ?position
