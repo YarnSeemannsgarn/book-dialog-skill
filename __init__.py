@@ -32,6 +32,20 @@ class BookDialog(MycroftSkill):
     def handle_what_is_a_graph(self, message):
         self.handle('what_is_a_graph.rq', 'description')
 
+    @intent_file_handler('which.knowledge.graph.has.the.highest.number.of.triples.intent')
+    def handle_which_knowledge_graph_has_the_highest_number_of_triples(self, message):
+        # Inference important for result (correct rdf:type handling)
+        self.wrapper.clearParameter('infer')
+        results = self.run_file_query('which_knowledge_graph_has_the_highest_number_of_triples.rq')
+        self.wrapper.addParameter('infer', 'false')
+
+        binding = results["results"]["bindings"][0]
+        answer = 'The graph {} with {} triples'.format(
+            binding["name"]["value"],
+            binding["numTriples"]["value"])
+
+        self.speak(answer)
+
     def handle(self, sparql_file_name, value):
         results = self.run_file_query(sparql_file_name)
         answer = self.create_answer(results, value)
