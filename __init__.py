@@ -16,6 +16,10 @@ class BookDialog(MycroftSkill):
     def handle_how_to_create_a_knowledge_graph(self, message):
         self.handle('how_to_create_a_knowledge_graph.rq', 'text')
 
+    @intent_file_handler('tell.me.chapters.of.knowledge.graphs.methodology.tools.and.selected.use.cases.intent')
+    def handle_tell_me_chapters_of_knowledge_graphs_methodology_tools_and_selected_use_cases(self, message):
+        self.handle('tell_me_chapters_of_knowledge_graphs_methodology_tools_and_selected_use_cases.rq', 'name')
+
     @intent_file_handler('tell.me.some.open.knowledge.graphs.intent')
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
         self.handle('tell_me_some_open_knowledge_graphs.rq', 'name')

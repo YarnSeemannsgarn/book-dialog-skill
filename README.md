@@ -13,7 +13,7 @@ Gives information about the book knowledge graphs methodology, tools and selecte
 * "Which knowledge graph has the highest number of triples?"
 * "Who are the authors of knowledge graphs methodology, tools and selected use cases?"
 * "How to create a knowledge graph? / how to build an annotation?"
-* "Tell me the chapters of the book with the name "knowledge graphs methodology, tools and selected use cases"?"
+* "Tell me chapters of knowledge graphs methodology, tools and selected use cases!"
 * "Tell me scholary articles with author dieter fensel!"
 
 ## Credits
