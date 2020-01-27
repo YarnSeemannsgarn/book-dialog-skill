@@ -18,7 +18,7 @@ class BookDialog(MycroftSkill):
 
     @intent_file_handler('tell.me.sub.types.of.knowledge.graphs.intent')
     def handle_tell_me_sub_types_of_knowledge_graphs(self, message):
-        self.handle('tell_me_sub_types_of_knowledge_graphs.rq', 'subTypes')
+        self.handle('tell_me_sub_types_of_knowledge_graphs.rq', 'label')
 
     @intent_file_handler('tell.me.some.open.knowledge.graphs.intent')
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):

@@ -1,7 +1,8 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?subTypes
+SELECT ?label
 WHERE {
     ?knowledgeGraph rdfs:label "KnowledgeGraph".
     ?subTypes rdfs:subClassOf ?knowledgeGraph.
+    ?subTypes rdfs:label ?label.
 }
