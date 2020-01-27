@@ -9,13 +9,23 @@ class BookDialog(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.wrapper = SPARQLWrapper(GRAPHDB_REPO_URL)
+        self.wrapper.addParameter('infer', 'false')
 
     @intent_file_handler('what.are.knowledge.graphs.intent')
-    def handle_dialog_book(self, message):
+    def handle_what_are_knowledge_graphs(self, message):
         results = self.run_file_query("what_are_knowledge_graphs.rq")
         answer = results["results"]["bindings"][0]["comment"]["value"]
         
-        self.speak_dialog('answer', data={"answer": answer})
+        self.speak(answer)
+
+    @intent_file_handler('tell.me.sub.types.of.knowledge.graphs.intent')
+    def handle_tell_me_sub_types_of_knowledge_graphs(self, message):
+        results = self.run_file_query("tell_me_sub_types_of_knowledge_graphs.rq")
+        answer = ''
+        for binding in results["results"]["bindings"]:
+            answer += binding["subTypes"]["value"] + "\n"
+
+        self.speak(answer)
 
     def run_file_query(self, file_name):
         sparql = self.read_sparql_file(file_name)
