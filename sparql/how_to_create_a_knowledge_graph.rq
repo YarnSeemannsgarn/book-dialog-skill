@@ -1,0 +1,12 @@
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?text
+WHERE {
+    ?howTo rdf:type schema:HowTo.
+    ?howTo schema:name "Create a Knowledge Graph".
+    ?howTo schema:step ?step.
+    ?step schema:text ?text.
+    ?step schema:position ?position.
+}
+ORDER BY ?position

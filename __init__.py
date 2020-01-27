@@ -12,6 +12,10 @@ class BookDialog(MycroftSkill):
         self.wrapper = SPARQLWrapper(GRAPHDB_REPO_URL)
         self.wrapper.addParameter('infer', 'false')
 
+    @intent_file_handler('how.to.create.a.knowledge.graph.intent')
+    def handle_how_to_create_a_knowledge_graph(self, message):
+        self.handle('how_to_create_a_knowledge_graph.rq', 'text')
+
     @intent_file_handler('tell.me.some.open.knowledge.graphs.intent')
     def handle_tell_me_some_open_knowledge_graphs_intent(self, message):
         self.handle('tell_me_some_open_knowledge_graphs.rq', 'name')
