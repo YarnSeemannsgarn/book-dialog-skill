@@ -1,0 +1,18 @@
+PREFIX schema: <http://schema.org/>
+PREFIX jsfn:<http://www.ontotext.com/js#>
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select * where { 
+    {select ?s ?v where {
+        ?s schema:name ?sn .
+        bind(xsd:float(jsfn:levenshteinDistance(lcase(?sn), lcase("$ANY$"))) as ?dist).
+        bind(strlen(str(?sn)) as ?len1).
+        bind(strlen(str("$ANY$")) as ?len2).
+        bind(if(?len1 < ?len2, ?len2, ?len1) as ?max)
+        bind((xsd:float(?dist)/xsd:float(?max)) as ?v)
+        filter(?v < 0.10)  
+    } limit 1 
+    }
+	?s ?p ?o .
+    optional {?o schema:name ?n}
+}
