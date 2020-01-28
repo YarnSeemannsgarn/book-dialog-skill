@@ -9,11 +9,14 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 def uri_to_str(uri):
-  return uri.split("/").pop().split("#").pop()
+    str = uri.split("/").pop().split("#").pop()
+    if str.startswith("genid"):
+        return "blank node"
+    return str
 
 
-#GRAPHDB_REPO_URL = 'http://localhost:7200/repositories/OCWS2019'
-GRAPHDB_REPO_URL = 'http://graphdb.sti2.at/repositories/OCWS2019'
+GRAPHDB_REPO_URL = 'http://localhost:7200/repositories/OCWS2019'
+#GRAPHDB_REPO_URL = 'http://graphdb.sti2.at/repositories/OCWS2019'
 
 class BookDialog(MycroftSkill):
     def __init__(self):
@@ -101,7 +104,9 @@ class BookDialog(MycroftSkill):
                 if similar(prop, any_str) > 0.85:
                     real_prop = prop
                     if "n" in b:
-                        vals.append("a new node {} with name {}".format(uri_to_str(b["o"]["value"]), uri_to_str(b["n"]["value"])))
+                        vals.append("a new {} with name {}".format(
+                            "node " + uri_to_str(b["o"]["value"]) if b["o"]["type"] == "uri" else "blank node"
+                            ,uri_to_str(b["n"]["value"])))
                     else: 
                         vals.append(uri_to_str(b["o"]["value"]))
         
