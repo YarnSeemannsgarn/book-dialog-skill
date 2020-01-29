@@ -1,3 +1,1 @@
-explore back
-explore last one
-explore remove
+(explore | explorer) (back | last one | remove)

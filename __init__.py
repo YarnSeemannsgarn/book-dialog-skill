@@ -15,13 +15,13 @@ def uri_to_str(uri):
     return str
 
 
-GRAPHDB_REPO_URL = 'http://localhost:7200/repositories/OCWS2019'
-#GRAPHDB_REPO_URL = 'http://graphdb.sti2.at/repositories/OCWS2019'
+GRAPHDB_REPO_URL = 'http://localhost:7200'
+#GRAPHDB_REPO_URL = 'http://graphdb.sti2.at'
 
 class BookDialog(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.wrapper = SPARQLWrapper(GRAPHDB_REPO_URL)
+        self.wrapper = SPARQLWrapper(GRAPHDB_REPO_URL + '/repositories/OCWS2019')
         self.wrapper.addParameter('infer', 'false')
         self.current = []
 
