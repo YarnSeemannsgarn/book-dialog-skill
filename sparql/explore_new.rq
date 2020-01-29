@@ -10,7 +10,7 @@ select * where {
         bind(strlen(str("$ANY$")) as ?len2).
         bind(if(?len1 < ?len2, ?len2, ?len1) as ?max)
         bind((xsd:float(?dist)/xsd:float(?max)) as ?v)
-        filter(?v < 0.10)  
+        filter(?v < 0.15 || ?dist < 3)  
     } limit 1 
     }
 	?s ?p ?o .
